@@ -1,5 +1,6 @@
 import React, {createContext, useContext, useState} from 'react';
 import {Dimensions} from 'react-native';
+import PropTypes from 'prop-types';
 
 const {width, height} = Dimensions.get('window');
 
@@ -36,5 +37,9 @@ function useBoard() {
 
   return context;
 }
+
+BoardProvider.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 export {BoardProvider, useBoard};

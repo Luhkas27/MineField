@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {useBoard} from '../../hooks/board';
 
@@ -26,6 +27,22 @@ const Field = ({opened, nearMinesQuantity, mined, exploded, flagged}) => {
       </S.Container>
     </S.ButtonContainer>
   );
+};
+
+Field.propTypes = {
+  opened: PropTypes.bool,
+  mined: PropTypes.bool,
+  exploded: PropTypes.bool,
+  flagged: PropTypes.bool,
+  nearMinesQuantity: PropTypes.number,
+};
+
+Field.defaultProps = {
+  opened: false,
+  mined: false,
+  exploded: false,
+  flagged: false,
+  nearMinesQuantity: null,
 };
 
 export default Field;

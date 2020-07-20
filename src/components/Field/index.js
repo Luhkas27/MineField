@@ -42,7 +42,7 @@ Field.defaultProps = {
   mined: false,
   exploded: false,
   flagged: false,
-  nearMinesQuantity: null,
+  nearMinesQuantity: 0,
 };
 
 export default Field;

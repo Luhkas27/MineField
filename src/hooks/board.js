@@ -9,14 +9,17 @@ const BoardContext = createContext({});
 function BoardProvider({children}) {
   const [maxColumnsNumber, setMaxColumnsNumber] = useState(10);
   const [blockSize, setBlockSize] = useState(() => {
+    const marginDiscount = ((maxColumnsNumber + 1) * 4) / maxColumnsNumber;
     const blockSizeWithoutMargin = width / maxColumnsNumber;
-    const blockSizeWithMargin = blockSizeWithoutMargin - 4;
+    const blockSizeWithMargin = blockSizeWithoutMargin - marginDiscount;
+
+    console.log(blockSizeWithMargin);
 
     return blockSizeWithMargin;
   });
   const [maxRowsNumber, setMaxRowsNumber] = useState(() => {
-    const resizedHeight = height * 0.6;
-    const numberOfRowsWithoutRound = resizedHeight / blockSize;
+    const resizedHeight = height * 0.7;
+    const numberOfRowsWithoutRound = resizedHeight / (blockSize + 4);
     const numberOfRowsRounded = Math.floor(numberOfRowsWithoutRound);
 
     return numberOfRowsRounded;
@@ -60,14 +63,19 @@ function BoardProvider({children}) {
       }
     }
 
-    console.log(board);
-
     return board;
   });
 
   return (
     <BoardContext.Provider
-      value={{blockSize, maxColumnsNumber, maxRowsNumber, difficulty}}>
+      value={{
+        blockSize,
+        maxColumnsNumber,
+        maxRowsNumber,
+        difficulty,
+        cleanBoard,
+        minedBoard,
+      }}>
       {children}
     </BoardContext.Provider>
   );

@@ -1,19 +1,27 @@
 import styled from 'styled-components/native';
+import {Dimensions} from 'react-native';
 
-export const Container = styled.View`
+const {height} = Dimensions.get('window');
+
+export const SafeAreaContainer = styled.SafeAreaView`
   flex: 1;
-  justify-content: center;
-  align-items: center;
   background-color: #e8e7e7;
 `;
 
-export const Title = styled.Text`
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 16px;
+export const HeaderContainer = styled.View`
+  flex: 1;
+  border-width: 1px;
+  border-color: red;
 `;
 
-export const Subtitle = styled.Text`
-  font-size: 16px;
-  margin-bottom: 32px;
+export const BoardContainer = styled.View`
+  height: ${height * 0.7}px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FooterContainer = styled.View`
+  flex: 1;
+  border-width: 1px;
+  border-color: blue;
 `;

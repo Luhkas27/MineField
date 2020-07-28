@@ -30,7 +30,7 @@ export const Container = styled.View`
   border-color: ${({opened}) => (opened ? '#BDBDC9' : '#3D3D48')};
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
+  margin: 2px;
 `;
 
 function colorSwitch(nearMinesQuantity) {
